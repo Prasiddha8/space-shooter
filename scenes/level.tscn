@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cn2n5juwibdc6"]
+
+[ext_resource type="Script" uid="uid://djudmmn7obw6y" path="res://scripts/level.gd" id="1_mx8sn"]
+[ext_resource type="Texture2D" uid="uid://coqmupvqn258v" path="res://Space shooter/Background/Screenshot 2026-09-26 153903.png" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://drnd536jliu7w" path="res://scenes/player.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://luj5uvk4vhc3" path="res://scenes/Interface.tscn" id="4_mx8sn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxd2"]
+size = Vector2(1171, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47ks3"]
+size = Vector2(20, 660)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kikrc"]
+size = Vector2(1158.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtfw5"]
+size = Vector2(20, 672)
+
+[node name="level" type="Node2D" unique_id=2119882665]
+script = ExtResource("1_mx8sn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1547549043]
+position = Vector2(576, 326.49997)
+scale = Vector2(1.9793459, 2.02795)
+texture = ExtResource("1_w7c3h")
+
+[node name="Outline" type="Node2D" parent="." unique_id=542094027]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Outline" unique_id=2043460616]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outline/StaticBody2D" unique_id=1943416346]
+position = Vector2(577, -10)
+shape = SubResource("RectangleShape2D_ohxd2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Outline/StaticBody2D" unique_id=1990425821]
+position = Vector2(-10, 324)
+shape = SubResource("RectangleShape2D_47ks3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Outline/StaticBody2D" unique_id=1688367473]
+position = Vector2(577, 663)
+shape = SubResource("RectangleShape2D_kikrc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Outline/StaticBody2D" unique_id=1374252681]
+position = Vector2(1163, 324)
+shape = SubResource("RectangleShape2D_rtfw5")
+
+[node name="meteor_timer" type="Timer" parent="." unique_id=287774502]
+wait_time = 0.129
+autostart = true
+
+[node name="Interface" parent="." unique_id=1930045592 instance=ExtResource("4_mx8sn")]
+
+[node name="Meteors" type="Node2D" parent="." unique_id=1786325465]
+
+[node name="Laser" type="Node2D" parent="." unique_id=947261535]
+
+[node name="Player" parent="." unique_id=2034617332 instance=ExtResource("2_w8frs")]
+position = Vector2(561, 320)
+
+[connection signal="timeout" from="meteor_timer" to="." method="_on_meteor_timer_timeout"]

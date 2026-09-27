@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bntw2ledr3krx"]
+
+[ext_resource type="Script" uid="uid://d2e1fc2avaiyc" path="res://scripts/meteor.gd" id="1_pxso2"]
+[ext_resource type="Texture2D" uid="uid://bjdwyowaet8v0" path="res://Space shooter/sprites/meteros/Rock1_1_no_shadow.png" id="2_83eji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47ks3"]
+radius = 29.274563
+
+[node name="meteor" type="Area2D" unique_id=654082467]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_pxso2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=685653054]
+texture = ExtResource("2_83eji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=403773014]
+position = Vector2(2, 0)
+rotation = -0.7853982
+shape = SubResource("CircleShape2D_47ks3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

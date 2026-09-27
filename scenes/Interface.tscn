@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://luj5uvk4vhc3"]
+
+[ext_resource type="Script" uid="uid://b56nmtv5dgpj8" path="res://scripts/interface.gd" id="1_va005"]
+[ext_resource type="Texture2D" uid="uid://c8adhtg128jkl" path="res://Space shooter/sprites/heart_scale_003.png" id="2_va005"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1930045592]
+script = ExtResource("1_va005")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1522139108]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1182220380]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "SCORE:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1033116823]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 216.0
+grow_vertical = 0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=483342258]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=481830642]
+layout_mode = 2
+texture = ExtResource("2_va005")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=784441704]
+layout_mode = 2
+texture = ExtResource("2_va005")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1318269873]
+layout_mode = 2
+texture = ExtResource("2_va005")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1573006140]
+layout_mode = 2
+texture = ExtResource("2_va005")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=596352574]
+layout_mode = 2
+texture = ExtResource("2_va005")
+stretch_mode = 2
+
+[node name="Score" type="Timer" parent="." unique_id=1733961018]
+autostart = true
+
+[connection signal="timeout" from="Score" to="." method="_on_score_timeout"]
