@@ -8,10 +8,8 @@ A 2D space shooter game developed using Godot.
 - Shooting cooldown
 - Meteor spawning
 - Meteor destruction
-- Player health system
-- Heart-based health UI
+- Player health 
 - Score system
-- Game over screen
 
 #Controls
 
